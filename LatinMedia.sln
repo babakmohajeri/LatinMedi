@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinMedia.WEB", "LatinMedia.WEB\LatinMedia.WEB.csproj", "{7DCC7549-B568-4573-9C9B-4ADB8F005CF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinMedia.Core", "LatinMedi.Core\LatinMedia.Core.csproj", "{90E0570E-D4F7-44A2-A7F5-183242C9899A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinMedia.DataLayer", "LatinMedia.DataLayer\LatinMedia.DataLayer.csproj", "{E88F4599-CC7B-4D06-84F0-C66C667AD756}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7DCC7549-B568-4573-9C9B-4ADB8F005CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DCC7549-B568-4573-9C9B-4ADB8F005CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DCC7549-B568-4573-9C9B-4ADB8F005CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E0570E-D4F7-44A2-A7F5-183242C9899A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E0570E-D4F7-44A2-A7F5-183242C9899A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E0570E-D4F7-44A2-A7F5-183242C9899A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E0570E-D4F7-44A2-A7F5-183242C9899A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E88F4599-CC7B-4D06-84F0-C66C667AD756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E88F4599-CC7B-4D06-84F0-C66C667AD756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E88F4599-CC7B-4D06-84F0-C66C667AD756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E88F4599-CC7B-4D06-84F0-C66C667AD756}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
