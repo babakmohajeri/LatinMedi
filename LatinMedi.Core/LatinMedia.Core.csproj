@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Convertor\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Secutiry\" />
     <Folder Include="Services\Interface\" />
