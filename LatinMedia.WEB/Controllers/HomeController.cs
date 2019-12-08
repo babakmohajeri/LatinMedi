@@ -10,7 +10,12 @@ namespace LatinMedia.WEB.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Hello Asp.Net Core 2.2");
+            return View();
+        }
+
+        public IActionResult Test()
+        {
+            return View();
         }
     }
 }

@@ -1,0 +1,194 @@
+﻿@model LatinMedia.Core.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .register-box {
+        position: relative;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        font-size: 14px;
+        line-height: 1.4;
+        font-family: 'IRANSans','Raleway', sans-serif;
+        color: #5d5f5e;
+        direction: rtl;
+        box-sizing: border-box;
+        outline: none;
+        background: #FFF;
+        margin: 20px auto;
+        padding: 40px 40px 0;
+        width: 482px;
+        height: auto;
+        box-shadow: 0px 0px 5px 0px rgba(185, 184, 184, 0.75);
+    }
+    .titleBar {
+        position: absolute;
+        width: 482px;
+        height: 4px;
+        background: #1fbdbd;
+        top: 0;
+        left: 0;
+    }
+
+    .fre-input-field {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        font-size: 14px;
+        line-height: 1.4;
+        font-family: 'IRANSans', 'Raleway', sans-serif;
+        color: #5d5f5e;
+        direction: rtl;
+        box-sizing: border-box;
+        outline: none;
+        margin-bottom: 20px;
+    }
+
+        .custom-field input[type=email], .custom-field input[type=number], .custom-field input[type=password], .custom-field input[type=search], .custom-field input[type=text], .fre-input-field input[type=email], .fre-input-field input[type=number], .fre-input-field input[type=password], .fre-input-field input[type=search], .fre-input-field input[type=text] {
+            padding: 12px 15px;
+            width: 100%;
+            height: 44px;
+            border: 1px solid #dbdbdb;
+            border-radius: 2px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #415161;
+            line-height: normal;
+        }
+
+    .full-width {
+        width: 100wh;
+        background-color: whitesmoke;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+    .fre-authen-register > h2 {
+        margin: 0 0 40px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #2c3e50;
+        line-height: 1em;
+        text-align: center;
+    }
+
+    .fre-btn, .btn-submit, .primary-bg-color {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        direction: rtl;
+        box-sizing: border-box;
+        margin: 0;
+        font: inherit;
+        overflow: visible;
+        text-transform: none;
+        -webkit-appearance: button;
+        font-family: inherit;
+        display: inline-block;
+        height: 48px;
+        background: #1fbdbd;
+        padding-right: 22px;
+        padding-left: 22px;
+        color: #FFFFFF;
+        text-align: center;
+        border-radius: 4px;
+        border: 2px solid #1fbdbd;
+        box-shadow: none;
+        line-height: 44px;
+        transition: 0.2s ease-out;
+        outline: none;
+        cursor: pointer;
+        background-color: #00bfd6;
+        border-color: #00bfd6;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+        .fre-btn:hover, .btn-submit:hover, .primary-bg-color:hover {
+            color: #1fbdbd;
+            background: #FFFFFF;
+        }
+    .fre-authen-register > p {
+        padding: 0 20px;
+        margin: 0 0 54px;
+        font-size: 16px;
+        line-height: 1.6em;
+        text-align: center;
+    }
+    .fre-authen-footer {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        font-size: 14px;
+        line-height: 1.4;
+        font-family: 'IRANSans','Raleway', sans-serif;
+        color: #5d5f5e;
+        direction: rtl;
+        box-sizing: border-box;
+        outline: none;
+        padding: 30px 40px;
+        margin-right: -40px;
+        margin-left: -40px;
+        text-align: center;
+        border-top: 1px solid #dbdbdb;
+    }
+    .fre-authen-register .fre-authen-footer {
+        padding: 30px 40px;
+        margin-right: -40px;
+        margin-left: -40px;
+        text-align: center;
+        border-top: 1px solid #dbdbdb;
+    }
+    .fre-authen-footer p {
+        text-align: center;
+        margin: 0;
+        font-size: 16px;
+        line-height: 1em;
+    }
+    a, a:focus, a:hover {
+        color: #0088ff !important;
+        ! text-decoration: none;
+        outline: none;
+    }
+
+</style>
+
+
+<div class="full-width">
+    <div class="register-box fre-authen-register">
+        <div class="titleBar"></div>
+        <h2>عضویت در سایت</h2>
+        <form role="form" asp-action="Register" method="post">
+
+            <div class="fre-input-field">
+                <input type="text" asp-for="FirstName" placeholder="نام">
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="fre-input-field">
+                <input type="text" asp-for="LastName" placeholder="نام خانوادگی">
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div class="fre-input-field">
+                <input type="text" asp-for="Mobile" placeholder="موبایل">
+                <span asp-validation-for="Mobile"></span>
+            </div>
+            <div class="fre-input-field">
+                <input type="text" asp-for="Email" placeholder="ایمیل">
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="fre-input-field">
+                <input type="password" asp-for="Password" placeholder="کلمه عبور">
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="fre-input-field">
+                <input type="password" asp-for="RePassword" placeholder="تکرار کلمه عبور">
+                <span asp-validation-for="RePassword"></span>
+            </div>
+            <div class="fre-input-field">
+                <button class="fre-btn btn-submit primary-bg-color">ثبت نام</button>
+            </div>
+
+        </form>
+        <p>با عضویت و ساخت حساب در سایت، من تمام <a href="#" class="secondary-color" rel="noopener noreferrer" target="_Blank">قوانین سایت و مقررات حریم خصوصی</a> را می پذیرم</p>
+        <div class="fre-authen-footer">
+            <p>از قبل حساب کاربری دارید؟ <a asp-page="/Account/Login" class="secondary-color">ورود</a></p>
+        </div>
+    </div>
+</div>

@@ -14,8 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LatinMedia.WEB\LatinMedia.WEB.csproj" />
-  </ItemGroup>
-
 </Project>
