@@ -1,0 +1,22 @@
+﻿@model LatinMedia.DataLayer.Entities.User
+@{
+    ViewData["Title"] = "SuccessRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .myIcon{
+        color: red;
+    }
+</style>
+
+<div class="alert alert-success text-center">
+    <span class="glyphicon-saved myIcon"></span>
+    <h4>@Model.FirstName</h4>
+    ثبت نام شما با موفقیت انجام شد. <br />
+    لینک فعال سازی به ایمیل
+    @Model.Email
+    ارسال شد .<br />
+    جهت ادامه کار با سایت وارد ایمیل خود شده و بر روی لینک فعال سازی کلیک نمایید .
+    <h4>@Model.FirstName ثبت نام شما با موفقیت انجام شد </h4>
+</div>
+

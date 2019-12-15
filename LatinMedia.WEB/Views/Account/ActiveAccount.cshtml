@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "ActiveAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.IsActivated)
+{
+    <div class="alert alert-success text-center">
+        <span class="glyphicon-saved"></span>
+        <h4>حساب کاربری شما با موفقیت فعال گردید</h4>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <span class="glyphicon-saved" style="color:red"></span>
+        <h4>حساب کاربری یافت نشد</h4>
+    </div>
+}
+
+

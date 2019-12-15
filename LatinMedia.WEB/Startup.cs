@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LatinMedia.Core.Convertors;
 using LatinMedia.Core.Services;
 using LatinMedia.Core.Services.Interfaces;
 using LatinMedia.DataLayer.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,12 +36,28 @@ namespace LatinMedia.WEB
                 options.UseSqlServer(Configuration.GetConnectionString("LatinMediaConnection"));
             });
 
-            #region IOC
+            #region Authentication
 
-            services.AddScoped<IUserService, UserService>();
+            services.AddAuthentication(options => 
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(options => 
+            {
+                options.LoginPath = "/Login";
+                options.LogoutPath = "/Logout";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(32400);
+            });
 
             #endregion
 
+            #region IOC
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IViewRenderService, RenderViewToString>();
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +69,7 @@ namespace LatinMedia.WEB
             }
 
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
 
             app.Run(async (context) =>

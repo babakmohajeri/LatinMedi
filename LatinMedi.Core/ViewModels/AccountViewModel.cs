@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LatinMedia.Core.ViewModels
 {
-    public class RegisterViewModel
+    public class AccountViewModel
     {
         [Display(Name = "نام")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
@@ -38,6 +38,29 @@ namespace LatinMedia.Core.ViewModels
         [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
         [Compare("Password", ErrorMessage = "کلمه عبور مغایرت دارد")]
         public string RePassword { get; set; }
+
+    }
+
+    public class LoginViewModel
+    {
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
+        [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نیست")]
+        public string Email { get; set; }
+
+        [Display(Name = "کلمه عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
+        public string Password { get; set; }
+
+        [Display(Name = "مرا به خاطر بسپار")]
+        public bool RememberMe { get; set; }
+    }
+
+    public class ForgotPassViewModel
+    {
+        public string Email { get; set; }
 
     }
 }

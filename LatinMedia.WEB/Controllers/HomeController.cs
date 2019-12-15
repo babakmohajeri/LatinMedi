@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LatinMedia.WEB.Controllers
@@ -13,6 +14,8 @@ namespace LatinMedia.WEB.Controllers
             return View();
         }
 
+        [Authorize]
+        [Route("MyTest")]
         public IActionResult Test()
         {
             return View();
