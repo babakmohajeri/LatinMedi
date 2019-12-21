@@ -1,0 +1,46 @@
+﻿@model LatinMedia.Core.ViewModels.InformationUserViewModel
+@using LatinMedia.Core.Convertor
+@{
+    ViewData["Title"] = "پنل کاربری";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">اطلاعات کاربری</h4>
+                    @*<p class="card-category">Complete your profile</p>*@
+                </div>
+                <div class="card-body">
+
+                    <p>نام و نام خانوادگی : @(Model.FirstName + " " + @Model.LastName)</p>
+                    <p>شماره موبایل : @Model.Mobile</p>
+                    <p>تاریخ ثبت نام : @Model.RegisterDate.ToShamsi()</p>
+                    <p>شماره موبایل : @Model.Wallet</p>
+                    <p>آدرس ایمیل : @Model.Email</p>
+
+                    <a href="/UserPanel/EditProfile" class="btn btn-rose btn-round">ویرایش پروفایل</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-profile">
+                <div class="card-avatar"  style="border: 2px dotted gray;">
+                    <a href="#pablo">
+                        <img class="img" src="~/images/UserAvatar/@Model.UserAvatar">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-category text-gray">@(Model.FirstName + " " + @Model.LastName)</h6>
+                    <h4 class="card-title">@Model.Email</h4>
+                    @*<p class="card-description">
+                        سیستم های هوشمند رسانه ای می توانند تحولی عظیم در راهنمایی بشریت در انهدام و ادغام علوم تجربی بر این زمینه داشته باشند ...
+                    </p>*@
+                    <a href="/Logout" class="btn btn-danger btn-round">خروج</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

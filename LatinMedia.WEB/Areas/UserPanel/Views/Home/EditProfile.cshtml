@@ -1,0 +1,75 @@
+﻿@model LatinMedia.Core.ViewModels.EditUserProfileViewModel
+@{
+    ViewData["Title"] = "ویرایش اطلاعات کاربری";
+    var ln = Model.LastName;
+    var fn = Model.FirstName;
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <form method="post" asp-action="EditProfile" enctype="multipart/form-data">
+            <input type="hidden" asp-for="AvatarName" />
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">تغییر مشخصات کاربری</h4>
+                        </div>
+                        <div class="card-body">
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group bmd-form-group">
+                                        <label class="bmd-label-floating">نام</label>
+                                        <input asp-for="FirstName" type="text" class="form-control">
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group bmd-form-group">
+                                        <label class="bmd-label-floating">نام خانوادگی</label>
+                                        <input asp-for="LastName" class="form-control">
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group bmd-form-group">
+                                        <label class="bmd-label-floating">شماره موبایل</label>
+                                        <input asp-for="Mobile" type="text" class="form-control">
+                                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary pull-right btn-round">اعمال تغییرات</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar" style="border: 2px dotted gray;">
+                            <a href="#pablo">
+                                <img class="img" src="~/images/UserAvatar/@Model.AvatarName">
+                            </a>
+                        </div>
+                        <div class="card-body">
+
+                            <input asp-for="UserAvatar" />
+                            
+                            @* <a href="/Logout" class="btn btn-danger btn-round">خروج</a>*@
+                        </div>
+                        <p class="help text-danger">لطفا عکس خود را انتخاب نمایید</p>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+

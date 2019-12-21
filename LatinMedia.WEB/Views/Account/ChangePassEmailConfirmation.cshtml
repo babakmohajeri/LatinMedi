@@ -1,0 +1,20 @@
+﻿@model LatinMedia.DataLayer.Entities.User
+@{
+    ViewData["Title"] = "SuccessRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .myIcon {
+        color: red;
+    }
+</style>
+
+<div class="alert alert-success text-center" style="direction:rtl; font-family: 'B Yekan' Tahoma;">
+    <span class="glyphicon-saved myIcon"></span>
+    <h4>@Model.FirstName عزیز</h4>
+    <span style="direction:rtl; font-family: Tahoma;">درخواست تغییر پسورد برای شما انجام شد</span>. <br />
+    لینک تعییر پسورد به ایمیل
+    @Model.Email
+    ارسال شد .<br />
+    جهت ادامه کار با سایت وارد ایمیل خود شده و بر روی لینک تغییر پسورد کلیک نمایید .
+</div>

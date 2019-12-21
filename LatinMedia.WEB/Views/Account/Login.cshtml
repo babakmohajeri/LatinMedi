@@ -22,6 +22,18 @@
         setTimeout(function () { window.location = "https://localhost:44351"; }, delay);
     </script>
 }
+
+@if (ViewBag.EditProfile == true)
+{
+    <script>
+    swal({
+        title: "اطلاعات پروفایل شما به درستی ویرایش گردید",
+            text: "لطفا مجدداً وارد شوید",
+            icon: "success",
+            button: "فهمیدم",
+        });
+    </script>
+}
 <link href="~/css/Register.css" rel="stylesheet" />
 <div class="full-width">
     <div class="register-box fre-authen-register">
@@ -42,6 +54,14 @@
             <div class="fre-input-field">
                 <button class="fre-btn btn-submit primary-bg-color">ورود</button>
             </div>
+
+            <input type="checkbox" checked="" data-val="true" data-val-required="The مرا به خاطر بسپار field is required." id="RememberMe" name="RememberMe" value="true">
+            <label asp-for="RememberMe" class="label-check">
+                <span class="checkbox primary primary"><span></span></span>
+                مرا به خاطر بسپار
+            </label>
+
+            <p>رمزتان را گم کرده‌اید؟ <a href="/ForgotPassword" class="alert-danger">اینجا کلیک کنید</a></p>
 
         </form>
         <p>@*با عضویت و ساخت حساب در سایت، من تمام <a href="#" class="secondary-color" rel="noopener noreferrer" target="_Blank">قوانین سایت و مقررات حریم خصوصی</a> را می پذیرم*@</p>

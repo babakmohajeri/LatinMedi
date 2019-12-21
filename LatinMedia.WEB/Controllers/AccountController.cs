@@ -89,8 +89,9 @@ namespace LatinMedia.WEB.Controllers
 
         [Route("Login")]
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login( bool EditProfile = false)
         {
+            ViewBag.EditProfile = EditProfile;
             return View();
         }
 
@@ -165,7 +166,6 @@ namespace LatinMedia.WEB.Controllers
             return View();
         }
 
-
         [Route("ForgotPassword")]
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(ForgotPassViewModel forgotModel)
@@ -184,14 +184,43 @@ namespace LatinMedia.WEB.Controllers
             }
             else
             {
-                string bodyEmail = _renderViewService.RenderToStringAsync("", user);
+                string bodyEmail = _renderViewService.RenderToStringAsync("_ForgotPassword", user);
                 SendEmail.Send(userEmail, "ایمیل تایید فراموشی رمز عبور", bodyEmail);
-                ViewBag.IsSeccess = true;
+                ViewBag.IsSuccess = true;
+                return View();
+                // return View("ChangePassEmailConfirmation", model: user);
             }
-            return View();
         }
+
+        public IActionResult ResetPassword(string id)
+        {
+            return View(new ResetPasswordVewModel() {
+                ActiveCode=id
+            });
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(ResetPasswordVewModel reset)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(reset);
+            }
+
+            User user = _UserService.GetUserByActiveCode(reset.ActiveCode);
+            if (user == null)
+            {
+                ModelState.AddModelError("Password", "کاربر پیدا نشد");
+                return View(reset);
+            }
+
+            string HashNewPassword = PasswordHelper.EncodePasswordMd5(reset.Password);
+            user.Password = HashNewPassword;
+            _UserService.UpdateUser(user);
+
+            return RedirectToAction("Login");
+        }
+
         #endregion
-
     }
-
 }

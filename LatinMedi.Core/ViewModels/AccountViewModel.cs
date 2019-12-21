@@ -60,7 +60,26 @@ namespace LatinMedia.Core.ViewModels
 
     public class ForgotPassViewModel
     {
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
+        [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نیست")]
         public string Email { get; set; }
+    }
 
+    public class ResetPasswordVewModel
+    {
+        public string ActiveCode { get; set; }
+
+        [Display(Name = "کلمه عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
+        public string Password { get; set; }
+
+        [Display(Name = "تکرار کلمه عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد.")]
+        [Compare("Password", ErrorMessage = "کلمه عبور مغایرت دارد")]
+        public string RePassword { get; set; }
     }
 }
